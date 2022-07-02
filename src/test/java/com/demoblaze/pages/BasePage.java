@@ -1,4 +1,17 @@
 package com.demoblaze.pages;
 
-public class BasePage {
+import com.demoblaze.utilities.Driver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
+
+public abstract class BasePage {   // ABSTRACT CLASS
+
+    public BasePage(){    // CONSTRUCTOR
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
+
+    public void getLink(String link){
+        Driver.getDriver().findElement(By.partialLinkText(link)).click();
+    }
+
 }
